@@ -1,2 +1,4 @@
 # installer-openssh
-Installer OpenSSH
+OpenSSH Installer
+
+This is a custom installer for [OpenSSH](https://github.com/PowerShell/openssh-portable)
