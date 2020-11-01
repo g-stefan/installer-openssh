@@ -3,7 +3,11 @@ rem Public domain
 rem http://unlicense.org/
 rem Created by Grigore Stefan <g_stefan@yahoo.com>
 
+echo -^> vendor openssh
+
+call build.config.cmd
+
 if not exist vendor\ mkdir vendor
 
-set WEB_LINK=https://github.com/g-stefan/vendor-openssh/releases/download/v8.1.0.0/openssh-8.1.0.0-win64-msvc-2019.7z
-if not exist vendor\openssh-8.1.0.0-win64-msvc-2019.7z curl --insecure --location %WEB_LINK% --output vendor\openssh-8.1.0.0-win64-msvc-2019.7z
+set WEB_LINK=https://github.com/g-stefan/vendor-openssh/releases/download/v%PRODUCT_VERSION%/openssh-%PRODUCT_VERSION%-win64-msvc-2019.7z
+if not exist vendor\openssh-%PRODUCT_VERSION%-win64-msvc-2019.7z curl --insecure --location %WEB_LINK% --output vendor\openssh-%PRODUCT_VERSION%-win64-msvc-2019.7z

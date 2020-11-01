@@ -13,7 +13,7 @@
 Name "OpenSSH"
 
 ; Version
-!define OpenSSHVersion "8.1.0.0"
+!define OpenSSHVersion "$%PRODUCT_VERSION%"
 
 ; The file to write                     
 OutFile "installer\openssh-${OpenSSHVersion}-installer.exe"
