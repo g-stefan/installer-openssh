@@ -1,9 +1,10 @@
 ;--------------------------------
 ; OpenSSH Installer
 ;
-; Public domain
-; http://unlicense.org/
 ; Created by Grigore Stefan <g_stefan@yahoo.com>
+; Public domain (Unlicense) <http://unlicense.org>
+; SPDX-FileCopyrightText: 2020-2023 Grigore Stefan <g_stefan@yahoo.com>
+; SPDX-License-Identifier: Unlicense
 ;
 
 !include "MUI2.nsh"
@@ -16,7 +17,7 @@ Name "OpenSSH"
 !define OpenSSHVersion "$%PRODUCT_VERSION%"
 
 ; The file to write                     
-OutFile "installer\openssh-${OpenSSHVersion}-installer.exe"
+OutFile "release\openssh-${OpenSSHVersion}-installer.exe"
 
 Unicode True
 CRCCheck on
