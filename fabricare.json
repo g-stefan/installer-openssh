@@ -10,7 +10,6 @@
 				"noVersion" : true
 			}
 		],
-		"hasGithub" : true,
 		"sourceLinks" : {
 			"openssh-9.1.0.0-win64-msvc-2022.7z" : "https://github.com/g-stefan/vendor-openssh"
 		}
