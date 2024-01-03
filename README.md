@@ -5,7 +5,7 @@ This is a custom installer for [OpenSSH](https://github.com/PowerShell/openssh-p
 
 ## License
 
-Copyright (c) 2020-2023 Grigore Stefan
+Copyright (c) 2020-2024 Grigore Stefan
 Licensed under the [MIT](LICENSE) license.
 
 **This is a compilation of different works.**
