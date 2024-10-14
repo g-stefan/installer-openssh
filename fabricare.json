@@ -6,12 +6,12 @@
 			{
 				"name" : "installer-openssh",
 				"SPDX-License-Identifier": "MIT",
-				"version" : "9.1.0.0",
+				"version" : "9.8.1.0",
 				"noVersion" : true
 			}
 		],
 		"sourceLinks" : {
-			"openssh-9.1.0.0-win64-msvc-2022.7z" : "https://github.com/g-stefan/vendor-openssh"
+			"openssh-9.8.1.0-win64-msvc-2022.7z" : "https://github.com/g-stefan/vendor-openssh"
 		}
 	}
 }
