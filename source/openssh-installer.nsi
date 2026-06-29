@@ -17,7 +17,7 @@ Name "OpenSSH"
 !define OpenSSHVersion "$%PRODUCT_VERSION%"
 
 ; The file to write                     
-OutFile "release\openssh-${OpenSSHVersion}-installer.exe"
+OutFile "release\xyo-openssh-${OpenSSHVersion}-installer.exe"
 
 Unicode True
 CRCCheck on
@@ -25,11 +25,11 @@ RequestExecutionLevel admin
 BrandingText "Grigore Stefan [ github.com/g-stefan ]"
 
 ; The default installation directory
-InstallDir "$PROGRAMFILES64\OpenSSH"
+InstallDir "$PROGRAMFILES64\XYO\OpenSSH"
 
 ; Registry key to check for directory (so if you install again, it will 
 ; overwrite the old one automatically)
-InstallDirRegKey HKLM "Software\OpenSSH" "InstallPath"
+InstallDirRegKey HKLM "Software\XYO\OpenSSH" "InstallPath"
 
 ;--------------------------------
 ;Interface Settings
@@ -113,16 +113,16 @@ Section "OpenSSH (required)" MainSection
 
 	; Set output path to the installation directory.
 	SetOutPath $INSTDIR
-	WriteRegStr HKLM "Software\OpenSSH" "InstallPath" "$INSTDIR"
+	WriteRegStr HKLM "Software\XYO\OpenSSH" "InstallPath" "$INSTDIR"
 
 	; Write the uninstall keys for Windows
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\OpenSSH" "DisplayName" "OpenSSH"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\OpenSSH" "Publisher" "Grigore Stefan [ github.com/g-stefan ]"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\OpenSSH" "DisplayVersion" "${OpenSSHVersion}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\OpenSSH" "DisplayIcon" '"$INSTDIR\Uninstall.exe"'
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\OpenSSH" "UninstallString" '"$INSTDIR\Uninstall.exe"'
-	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\OpenSSH" "NoModify" 1
-	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\OpenSSH" "NoRepair" 1
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-OpenSSH" "DisplayName" "XYO OpenSSH"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-OpenSSH" "Publisher" "Grigore Stefan [ github.com/g-stefan ]"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-OpenSSH" "DisplayVersion" "${OpenSSHVersion}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-OpenSSH" "DisplayIcon" '"$INSTDIR\Uninstall.exe"'
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-OpenSSH" "UninstallString" '"$INSTDIR\Uninstall.exe"'
+	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-OpenSSH" "NoModify" 1
+	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-OpenSSH" "NoRepair" 1
 
 	; Program files
 	File "output\*"
@@ -137,7 +137,7 @@ Section "OpenSSH (required)" MainSection
 	; Computing EstimatedSize
 	Call GetInstalledSize
 	Pop $0
-	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\OpenSSH" "EstimatedSize" "$0"
+	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-OpenSSH" "EstimatedSize" "$0"
 
 	; Configure
 	ReadEnvStr $0 "ProgramData"
@@ -207,10 +207,10 @@ Section "Uninstall"
 	!macroend
  
 	ClearErrors
-	ReadRegStr $INSTDIR HKLM "Software\OpenSSH" "InstallPath"
+	ReadRegStr $INSTDIR HKLM "Software\XYO\OpenSSH" "InstallPath"
 	IfErrors +2
 	StrCmp $INSTDIR "" 0 +2
-		StrCpy $INSTDIR "$PROGRAMFILES64\OpenSSH"
+		StrCpy $INSTDIR "$PROGRAMFILES64\XYO\OpenSSH"
  
 	# Check that the uninstall isn't dangerous.
 	!insertmacro BadPathsCheck
@@ -241,8 +241,8 @@ Section "Uninstall"
 	SetOutPath $TEMP
 
 	; Remove registry keys
-	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\OpenSSH"
-	DeleteRegKey HKLM "Software\OpenSSH"
+	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-OpenSSH"
+	DeleteRegKey HKLM "Software\XYO\OpenSSH"
 
 	; Remove files and uninstaller
 	RMDir /r "$INSTDIR"
